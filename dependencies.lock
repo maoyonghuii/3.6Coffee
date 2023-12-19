@@ -1,0 +1,99 @@
+dependencies:
+  espressif/button:
+    component_hash: e162e6c8fc670ae297dca5ec75037966c1d69a1509f0b2048a883a7c54fb7aba
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 2.5.6
+  espressif/cmake_utilities:
+    component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 0.5.3
+  espressif/esp_codec_dev:
+    component_hash: bfa92c177f836be5847e4a4248349267614500e1e0728c4939e51a73746b8918
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.3
+  espressif/esp_io_expander:
+    component_hash: fbc0de4082fc7c207dc98a93a0ed83d1a929a4ecee83cc567afb406f3ee6d4a6
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.1
+  espressif/esp_io_expander_tca9554:
+    component_hash: e9e49ddb1038c2b54b13c51b5e3e6dbdd10a878959c8ab0e0a7c8206316add61
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.1
+  espressif/esp_lcd_gc9503:
+    component_hash: 1bc40784c18b6b0bc7999cb1a6f076d2ffaee79696388d0a3c6559b7de386404
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.0
+  espressif/esp_lcd_panel_io_additions:
+    component_hash: 213d5c4a3c322a48c9f993d6bc2372206d34af95db34e87a3e02601bdcad7ce8
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.1
+  espressif/esp_lcd_touch:
+    component_hash: d4d8f2dc33205797169a97a02e0d89a8982f59fe0509129b54422052b8522f59
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.1.1
+  espressif/esp_lcd_touch_ft5x06:
+    component_hash: 97759953d9436a365e9427078c5b04ecce4e6a50f50cf62c68cd6bfa229b812c
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.6
+  espressif/esp_lcd_touch_gt1151:
+    component_hash: b854694702b8687dc0a456017d4a292f8ddfa3cb8ad2faa282fabbb989e6fd26
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.5~1
+  espressif__esp32_s3_lcd_ev_board:
+    component_hash: null
+    source:
+      path: C:\Users\12636\Desktop\usb_camera_lcd_display\components\espressif__esp32_s3_lcd_ev_board
+      type: local
+    version: 2.1.0
+  espressif__esp_lcd_touch_gt1151:
+    component_hash: null
+    source:
+      path: C:\Users\12636\Desktop\usb_camera_lcd_display\components\espressif__esp_lcd_touch_gt1151
+      type: local
+    version: 1.0.5~1
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.0.4
+  lvgl/lvgl:
+    component_hash: 948bff879a345149b83065535bbc4a026ce9f47498a22881e432a264b9098015
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 8.3.11
+  lvgl__lvgl:
+    component_hash: null
+    source:
+      path: C:\Users\12636\Desktop\usb_camera_lcd_display\components\lvgl__lvgl
+      type: local
+    version: 8.3.11
+  usb_stream:
+    component_hash: null
+    source:
+      path: C:\Users\12636\Desktop\usb_camera_lcd_display\components\usb\usb_stream
+      type: local
+    version: '*'
+manifest_hash: e89d735e69960678646a42c2cb6d8d4b9dcd306e7cc63d5e0743945feac10935
+target: esp32s3
+version: 1.0.0

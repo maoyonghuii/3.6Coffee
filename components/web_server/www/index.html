@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WIFI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .input span {
+            width: 100px;
+            float: left;
+            height: 36px;
+            line-height: 36px;
+        }
+
+        .input input {
+            height: 30px;
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .btn {
+            width: 120px;
+            height: 35px;
+            background-color: #000000;
+            border: 0px;
+            color: #ffffff;
+            margin-top: 15px;
+            margin-left: calc(50% - 60px);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #333333;
+        }
+
+        .nearby-wifi {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: '';
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="container">
+        <p>PWM</br>
+            IO3
+            <input type="range" id="pwmSlider2" min="0" max="255" value="0" onchange="setPWM(2)" />
+            <span id="pwmValue3">3</span>
+        </p>
+    </div>
+    <div class="container">
+        <p>
+        <h1>IO_CONTROLL</h1>
+        GPIO2:
+        <label class="switch" id="pinSwitch2">
+            <input type="checkbox" onclick="togglePin(2)">
+            <span class="slider"></span>
+        </label>
+        PWM
+        <input type="range" id="pwmSlider3" min="0" max="255" value="0" onchange="setPWM(3)" />
+        <span id="pwmValue3">0</span>
+        </p>
+    </div> -->
+
+    <div class="container">
+        <h1>WIFI</h1>
+        <form method="POST" action="configwifi">
+            <label class="input">
+                <span>WIFI name</span>
+                <input type="text" name="SSID">
+            </label>
+            <label class="input">
+                <span>WIFI Pd</span>
+                <input type="text" name="passWord">
+            </label>
+            <input class="btn" type="submit" name="submit" value="Submit">
+            <!-- //<p class="nearby-wifi">Nearby wifi:</p> -->
+        </form>
+    </div>
+    <div class="container">
+        <h2>OTA Update</h2>
+        <form method="POST" action="/update" enctype="multipart/form-data">
+            <input type="file" name="update">
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+</body>
+<script>
+    function togglePin(pin) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('POST', '/controll_io?pin=' + pin, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send('state=' + (document.getElementById('pinSwitch' + pin).checked ? 1 : 0));
+    }
+    function setPWM(pin) {
+        var sliderValue = document.getElementById('pwmSlider' + pin).value;
+        document.getElementById('pwmValue' + pin).innerText = sliderValue;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('POST', '/controll_pwm?pwmpin=' + pin, true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send('pwmValue=' + sliderValue);
+    }
+</script>
+
+</html>
